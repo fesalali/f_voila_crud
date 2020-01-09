@@ -8,5 +8,11 @@
             "email": "fesalali05@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    
+    "autoload": {
+        "psr-4": {
+            "crocodicstudio\crudbooster\\": "crocodicstudio\crudbooster/"
+        }
+    }
 }
