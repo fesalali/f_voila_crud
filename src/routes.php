@@ -1,9 +1,9 @@
 <?php
 
 /* ROUTER FOR API GENERATOR */
-$namespace = '\crocodicstudio\crudbooster\controllers';
+$namespace = '\crocodicstudio_voila\crudbooster\controllers';
 
-Route::group(['middleware' => ['api', '\crocodicstudio\crudbooster\middlewares\CBAuthAPI'], 'namespace' => 'App\Http\Controllers'], function () {
+Route::group(['middleware' => ['api', '\crocodicstudio_voila\crudbooster\middlewares\CBAuthAPI'], 'namespace' => 'App\Http\Controllers'], function () {
     //Router for custom api defeault
 
     $dir = scandir(base_path("app/Http/Controllers"));
@@ -42,7 +42,7 @@ Route::group(['middleware' => ['web'], 'prefix' => config('crudbooster.ADMIN_PAT
 
 // ROUTER FOR OWN CONTROLLER FROM CB
 Route::group([
-    'middleware' => ['web', '\crocodicstudio\crudbooster\middlewares\CBBackend'],
+    'middleware' => ['web', '\crocodicstudio_voila\crudbooster\middlewares\CBBackend'],
     'prefix' => config('crudbooster.ADMIN_PATH'),
     'namespace' => 'App\Http\Controllers',
 ], function () use ($namespace) {
@@ -51,7 +51,7 @@ Route::group([
         $menus = DB::table('cms_menus')->where('is_dashboard', 1)->first();
         if ($menus) {
             if ($menus->type == 'Statistic') {
-                Route::get('/', '\crocodicstudio\crudbooster\controllers\StatisticBuilderController@getDashboard');
+                Route::get('/', '\crocodicstudio_voila\crudbooster\controllers\StatisticBuilderController@getDashboard');
             } elseif ($menus->type == 'Module') {
                 $module = CRUDBooster::first('cms_moduls', ['path' => $menus->path]);
                 Route::get('/', $module->controller.'@getIndex');
@@ -80,7 +80,7 @@ Route::group([
 
 /* ROUTER FOR BACKEND CRUDBOOSTER */
 Route::group([
-    'middleware' => ['web', '\crocodicstudio\crudbooster\middlewares\CBBackend'],
+    'middleware' => ['web', '\crocodicstudio_voila\crudbooster\middlewares\CBBackend'],
     'prefix' => config('crudbooster.ADMIN_PATH'),
     'namespace' => $namespace,
 ], function () {
@@ -89,11 +89,11 @@ Route::group([
     if (Request::is(config('crudbooster.ADMIN_PATH'))) {
         $menus = DB::table('cms_menus')->where('is_dashboard', 1)->first();
         if (! $menus) {
-            CRUDBooster::routeController('/', 'AdminController', $namespace = '\crocodicstudio\crudbooster\controllers');
+            CRUDBooster::routeController('/', 'AdminController', $namespace = '\crocodicstudio_voila\crudbooster\controllers');
         }
     }
 
-    CRUDBooster::routeController('api_generator', 'ApiCustomController', $namespace = '\crocodicstudio\crudbooster\controllers');
+    CRUDBooster::routeController('api_generator', 'ApiCustomController', $namespace = '\crocodicstudio_voila\crudbooster\controllers');
 
     try {
 
@@ -106,7 +106,7 @@ Route::group([
 
         foreach ($moduls as $v) {
             if (@$v->path && @$v->controller) {
-                CRUDBooster::routeController($v->path, $v->controller, $namespace = '\crocodicstudio\crudbooster\controllers');
+                CRUDBooster::routeController($v->path, $v->controller, $namespace = '\crocodicstudio_voila\crudbooster\controllers');
             }
         }
     } catch (Exception $e) {
@@ -116,4 +116,4 @@ Route::group([
 
 
 
-Route::get('admin/getModulesItem/{val}','crocodicstudio\crudbooster\controllers\MenusClientController@getModulesItem');
+Route::get('admin/getModulesItem/{val}','crocodicstudio_voila\crudbooster\controllers\MenusClientController@getModulesItem');
