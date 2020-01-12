@@ -1,4 +1,4 @@
-<?php namespace crocodicstudio_voila\crudbooster\controllers;
+<?php namespace crocodicstudio\crudbooster\controllers;
 
 error_reporting(E_ALL ^ E_NOTICE);
 

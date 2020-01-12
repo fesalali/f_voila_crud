@@ -1,4 +1,4 @@
-<?php namespace crocodicstudio_voila\crudbooster\controllers;
+<?php namespace crocodicstudio\crudbooster\controllers;
 
 use File;
 use Image;

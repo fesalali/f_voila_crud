@@ -1,5 +1,5 @@
 <?php 
-namespace crocodicstudio_voila\crudbooster\fonts;
+namespace crocodicstudio\crudbooster\fonts;
 
 class Fontawesome {
 	public static function getIcons() {

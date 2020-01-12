@@ -1,9 +1,9 @@
-<?php namespace crocodicstudio_voila\crudbooster;
+<?php namespace crocodicstudio\crudbooster;
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
-use crocodicstudio_voila\crudbooster\commands\CrudboosterInstallationCommand;
-use crocodicstudio_voila\crudbooster\commands\CrudboosterUpdateCommand;
+use crocodicstudio\crudbooster\commands\CrudboosterInstallationCommand;
+use crocodicstudio\crudbooster\commands\CrudboosterUpdateCommand;
 use Illuminate\Foundation\AliasLoader;
 use App;
 
@@ -67,7 +67,7 @@ class CRUDBoosterServiceProvider extends ServiceProvider
 
         $this->commands('crudboosterinstall');
         $this->commands('crudboosterupdate');
-        $this->commands(['\crocodicstudio_voila\crudbooster\commands\CrudboosterVersionCommand']);
+        $this->commands(['\crocodicstudio\crudbooster\commands\CrudboosterVersionCommand']);
 
         $this->app->register('Barryvdh\DomPDF\ServiceProvider');
         $this->app->register('Maatwebsite\Excel\ExcelServiceProvider');
@@ -78,8 +78,8 @@ class CRUDBoosterServiceProvider extends ServiceProvider
         $loader->alias('PDF', 'Barryvdh\DomPDF\Facade');
         $loader->alias('Excel', 'Maatwebsite\Excel\Facades\Excel');
         $loader->alias('Image', 'Intervention\Image\Facades\Image');
-        $loader->alias('CRUDBooster', 'crocodicstudio_voila\crudbooster\helpers\CRUDBooster');
-        $loader->alias('CB', 'crocodicstudio_voila\crudbooster\helpers\CB');
+        $loader->alias('CRUDBooster', 'crocodicstudio\crudbooster\helpers\CRUDBooster');
+        $loader->alias('CB', 'crocodicstudio\crudbooster\helpers\CB');
     }
    
     private function registerCrudboosterCommand()

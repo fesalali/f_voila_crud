@@ -1,6 +1,6 @@
 <?php
 
-namespace crocodicstudio_voila\crudbooster\middlewares;
+namespace crocodicstudio\crudbooster\middlewares;
 
 use Closure;
 use CRUDBooster;
