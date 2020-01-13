@@ -23,12 +23,12 @@ CRUDBooster is CRUD Generator for laravel, with the most important features web 
 ## Installation
 1. Open the terminal, navigate to your project directory.
 ```php
-$ composer require crocodicstudio/crudbooster
+$ composer require crocodicstudio_voila/crudbooster
 ```
 
 2. Add the following class, to "providers" array in the file **config/app.php**
 ```php
-crocodicstudio\crudbooster\CRUDBoosterServiceProvider::class,
+crocodicstudio_voila\crudbooster\CRUDBoosterServiceProvider::class,
 ```
 
 3. Setting the database configuration, open .env file at project root directory
@@ -46,7 +46,7 @@ $ php artisan crudbooster:install
 ## Update
 - Open the terminal, navigate to your project directory.
 ```php
-$ composer require crocodicstudio/crudbooster
+$ composer require crocodicstudio_voila/crudbooster
 ```
 - Run the following command at the terminal
 ```php
